@@ -1,0 +1,29 @@
+f = @(x)x.*cos(x);
+a = 0;
+b = 1;
+
+%% 1
+format long
+
+integral(f, a, b)
+
+%% 2
+format long
+
+width = @(n)(b-a)/n;
+
+n = 50;
+
+width(n)
+
+approx1 
+
+for i=1:50
+    approx1 += width(n)*f(i-1);
+end
+
+approx1
+    
+%% 3
+
+
