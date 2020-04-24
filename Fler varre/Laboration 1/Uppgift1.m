@@ -9,7 +9,7 @@ y=[-9,-3,4,7];
 %% Question 2
 % https://i.imgur.com/QM9ai4v.png
 % https://i.imgur.com/oljiFnk.png
-f=@(x,y)(-x.*y.*exp(-2*(x.^4+y.^4)));
+f=@(x,y)(-x.^(2).*exp(-2.*(x.^4+y.^4)))
 x=linspace(-2,2,30); y=linspace(-2,2,30);
 [X,Y]=meshgrid(x,y);
 Z=f(X,Y);
