@@ -1,4 +1,4 @@
-%% Fråga 1
+    %% Fråga 1
 r1=@(t)8*cos(t+2.7)+cos(t-2.7);
 r2=@(t)8*sin(t+2.7)-sin(t-2.7);
 
@@ -32,7 +32,7 @@ tmax=pi;
 
 f=sqrt(dr1.^2+dr2.^2);
 
-o=vpa(int(f,[tmin tmax])) %omkrets
+o=abs(vpa(int(f,[tmin tmax]))) %omkrets
 
 %Fråga 3
 
