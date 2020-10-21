@@ -7,12 +7,12 @@ h = 0.02;
 theta_tau = pi/4;
 theta_tau_prim = pi;
 zeta_tau = L/3;
-zeta_tau_prim = 1;
+zeta_tau_prim = 0.3;
 
 d = -zeta_tau*sin(theta_tau)+(h/2)*cos(theta_tau);
 c = -zeta_tau_prim*sin(theta_tau)-zeta_tau*cos(theta_tau)*theta_tau_prim-(h/2)*sin(theta_tau)*theta_tau_prim;
-k = (c/g)+sqrt((-c/g)^2+(2/g)*(d+Bh-(L/2)));
-rot = theta_tau_prim*k + theta_tau;
+t = (c/g)+sqrt((-c/g)^2+(2/g)*(d+Bh-(L/2)));
+rot = theta_tau_prim*t + theta_tau;
 vinkel = mod(rot,2*pi);
 
 disp(vinkel);
