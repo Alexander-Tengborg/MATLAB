@@ -1,3 +1,4 @@
+%% Uppgift B
 clc
 clf
 clear ALL
@@ -12,7 +13,7 @@ start = [0; %täta0=1
         v0]; %zäta0'=v0
 
 %Tidsintervallet
-T=0:0.1:5;
+T=0:0.01:5;
 
 [t,y] = ode45(@F, T, start);
 plot(t,y(:,1),'b',t,y(:,2),'r');

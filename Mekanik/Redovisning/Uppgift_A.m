@@ -1,12 +1,12 @@
 %% Uppgift A
 clc
+clear ALL
 
 g = -9.82;
-tau = 2; 
 
 %Mackans längd och höjd/tjocklek
-L = 0.10;
-h = 0.01;
+L = 0.11;
+h = 0.02;
 
 %Bordets höjd
 Bh = 0.70;
@@ -33,8 +33,17 @@ D = h/2*cos(theta_tau)-zeta_tau*sin(theta_tau);
 %D = h/2*cos(theta_tau)-zeta_tau*sin(theta_tau)-C*tau-1/2*g*tau^2;
 
 t=-(C+sqrt(C^2-2*g*(D-rh)))/g
-tot_rotation = theta_tau_prim*t + theta_tau;
+tot_rotation = theta_prim_tau*t + theta_tau;
 vinkel = mod(tot_rotation,2*pi)
+
+T=0:0.01:t;
+ry=@(t)1/2*g*t.^2+C.*t+D;
+
+plot(T,ry(T))
+xlabel('t')
+ylabel('ry(t)')
+
+-Bh+h/2
 
 if(vinkel < pi/2)
     disp("Mackan landade med marmeladen uppåt :)");
