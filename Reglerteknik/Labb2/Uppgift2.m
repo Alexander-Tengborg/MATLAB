@@ -1,4 +1,4 @@
-%%Uppgift A
+%% Uppgift A
 clc
 
 s=tf('s'); % Görs bar en gång för att skapa laplacevariabeln s
@@ -36,7 +36,7 @@ disp('Kp=0.4:')
 
 [Am,phim,wpi,wc]=margin(F*G)
 
-%%Uppgift B
+%% Uppgift B
 clc
 
 s=tf('s'); % Görs bar en gång för att skapa laplacevariabeln s
@@ -82,3 +82,153 @@ step(Gry) % Plotta stegsvar
 [Am,phim,wpi,wc]=margin(F*G);
 wc
 wb=bandwidth(Gry)
+
+%% Uppgift C del 1
+clc
+
+s=tf('s'); % Görs bar en gång för att skapa laplacevariabeln s
+
+%Kp = 0.1
+Kp=0.1; % Sätt förstärkningen Kp = 0.1
+Ki=0.0098; % Sätt förstärkningen Ki = 0.0098 (44.9964 grader)
+G=(1-0.5*s)/s/(1+0.5*s); % Generera processmodellen G
+F=Ki/s+Kp; % Generera regulatorn F
+
+Gvy=feedback(G,F)
+step(Gvy)
+figure
+
+%Kp = 0.2
+Kp=0.2; % Sätt förstärkningen Kp = 0.2
+Ki=0.0289; % Sätt förstärkningen Ki = 0.0289 (45.0010 grader)
+G=(1-0.5*s)/s/(1+0.5*s); % Generera processmodellen G
+F=Ki/s+Kp; % Generera regulatorn F
+
+Gvy=feedback(G,F)
+step(Gvy)
+figure
+
+%Kp = 0.4
+Kp=0.4; % Sätt förstärkningen Kp = 0.4
+Ki=0.0652; % Sätt förstärkningen Ki = 0.0652 (44.9927 grader)
+G=(1-0.5*s)/s/(1+0.5*s); % Generera processmodellen G
+F=Ki/s+Kp; % Generera regulatorn F
+
+Gvy=feedback(G,F)
+step(Gvy)
+%% Uppgift C del 2
+clc
+
+s=tf('s'); % Görs bar en gång för att skapa laplacevariabeln s
+
+%Kp = 0.1
+Kp=0.1; % Sätt förstärkningen Kp = 0.1
+Ki=0.0098; % Sätt förstärkningen Ki = 0.0098 (44.9964 grader)
+G=(1-0.5*s)/s/(1+0.5*s); % Generera processmodellen G
+F=Ki/s+Kp; % Generera regulatorn F
+
+Gvy=feedback(G,F)
+sigma(Gvy)
+figure
+
+%Kp = 0.2
+Kp=0.2; % Sätt förstärkningen Kp = 0.2
+Ki=0.0289; % Sätt förstärkningen Ki = 0.0289 (45.0010 grader)
+G=(1-0.5*s)/s/(1+0.5*s); % Generera processmodellen G
+F=Ki/s+Kp; % Generera regulatorn F
+
+Gvy=feedback(G,F)
+sigma(Gvy)
+figure
+
+%Kp = 0.4
+Kp=0.4; % Sätt förstärkningen Kp = 0.4
+Ki=0.0652; % Sätt förstärkningen Ki = 0.0652 (44.9927 grader)
+G=(1-0.5*s)/s/(1+0.5*s); % Generera processmodellen G
+F=Ki/s+Kp; % Generera regulatorn F
+
+Gvy=feedback(G,F)
+
+sigma(Gvy)
+
+%% Uppgift D del 1
+clc
+
+s=tf('s'); % Görs bar en gång för att skapa laplacevariabeln s
+
+%Kp = 0.1
+Kp=0.1; % Sätt förstärkningen Kp = 0.1
+Ki=0.0098; % Sätt förstärkningen Ki = 0.0098 (44.9964 grader)
+G=(1-0.5*s)/s/(1+0.5*s); % Generera processmodellen G
+F=Ki/s+Kp; % Generera regulatorn F
+
+Gru=feedback(F,G)
+step(Gru)
+figure
+
+%Kp = 0.2
+Kp=0.2; % Sätt förstärkningen Kp = 0.2
+Ki=0.0289; % Sätt förstärkningen Ki = 0.0289 (45.0010 grader)
+G=(1-0.5*s)/s/(1+0.5*s); % Generera processmodellen G
+F=Ki/s+Kp; % Generera regulatorn F
+
+Gru=feedback(F,G)
+step(Gru)
+figure
+
+%Kp = 0.4
+Kp=0.4; % Sätt förstärkningen Kp = 0.4
+Ki=0.0652; % Sätt förstärkningen Ki = 0.0652 (44.9927 grader)
+G=(1-0.5*s)/s/(1+0.5*s); % Generera processmodellen G
+F=Ki/s+Kp; % Generera regulatorn F
+
+Gru=feedback(F,G)
+step(Gru)
+
+%% Uppgift D del 2
+clc
+
+s=tf('s'); % Görs bar en gång för att skapa laplacevariabeln s
+
+%Kp = 0.1
+Kp=0.1; % Sätt förstärkningen Kp = 0.1
+Ki=0.0098; % Sätt förstärkningen Ki = 0.0098 (44.9964 grader)
+G=(1-0.5*s)/s/(1+0.5*s); % Generera processmodellen G
+F=Ki/s+Kp; % Generera regulatorn F
+
+Gru=feedback(F,G)
+sigma(Gru)
+figure
+
+%Kp = 0.2
+Kp=0.2; % Sätt förstärkningen Kp = 0.2
+Ki=0.0289; % Sätt förstärkningen Ki = 0.0289 (45.0010 grader)
+G=(1-0.5*s)/s/(1+0.5*s); % Generera processmodellen G
+F=Ki/s+Kp; % Generera regulatorn F
+
+Gru=feedback(F,G)
+sigma(Gru)
+figure
+
+%Kp = 0.4
+Kp=0.4; % Sätt förstärkningen Kp = 0.4
+Ki=0.0652; % Sätt förstärkningen Ki = 0.0652 (44.9927 grader)
+G=(1-0.5*s)/s/(1+0.5*s); % Generera processmodellen G
+F=Ki/s+Kp; % Generera regulatorn F
+
+Gru=feedback(F,G)
+sigma(Gru)
+
+%% Uppgift E
+
+
+
+hold on
+
+scatter(0.1,1/0.0098)
+scatter(0.2,1/0.0289)
+scatter(0.4,1/0.0652)
+
+axis([0 2 0 105])
+ylabel("Jv")
+xlabel("Ju")
