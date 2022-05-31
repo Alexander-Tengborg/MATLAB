@@ -221,14 +221,17 @@ sigma(Gru)
 
 %% Uppgift E
 
-
+Ki=0:0.001:5
+Kp=0:0.001:5
 
 hold on
 
-scatter(0.1,1/0.0098)
-scatter(0.2,1/0.0289)
-scatter(0.4,1/0.0652)
+plot(Kp,1./Ki)
 
-axis([0 2 0 105])
+%scatter(0.1,1/0.0098)
+%scatter(0.2,1/0.0289)
+%scatter(0.4,1/0.0652)
+
+axis([0 5 0 5])
 ylabel("Jv")
 xlabel("Ju")
