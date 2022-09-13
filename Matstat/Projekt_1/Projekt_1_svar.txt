@@ -1,0 +1,39 @@
+Namn: Alexander Tengborg
+Personnummer: 200012241758
+e-post: tengborg@student.chalmers.se
+
+% Kod 1a start
+x=(-log(1-u)/alf).^(1/bta);
+% Kod 1a slut
+
+estb=20.6
+errb=2.5
+
+estc=1.152
+errc=0.131
+
+svard:
+Ja. Normal approximation är tillåtet då np >= 10 och n(1-p) >= 10.
+I vårt fall så ger detta 54*0.5926 > 10 = 32 > 10 och 54*(1-0.5926) > 10 = 22 > 10. 
+Då båda dessa olikheter gäller, så är normal approximation tillåtet.
+
+svare:
+Lambda (lbd) för båda simuleringar är 4.2
+Simulering 1 ger L=20.6111, W=4.9074
+Simulering 2 ger L=1.9444, W=0.4630
+
+Det finns tre parametrar som skiljer sig mellan de olika simuleringarna.
+
+Den första är alfa, som är skalparametern. Då simulering 2 har ett mycket högre
+alfa värde än simulering 1, så innebär det att simulering 2 kommer ha en distribution/graf
+som är mycket mer utspridd. Därav så behöver simulering 2 också ha fler datapunkter än
+simulering 1 (andra parametern)
+
+Den sista parametern, beta, är formparametern. Medans alfa enbart "drar ut"
+grafen/funktioner, så kommer beta istället att ändra på hela kurvans form.
+Båda våra beta är större än 1, så innebär det att felintensitet kommer att öka,
+då tiden ökar. En högre felintensitet innebär att antal förväntade fel för
+ett system är högre.
+
+Beta parametern i simulering 1 är större än den i simulering 2, och därav
+så kommer simulering 1:s felintensitet vara högre än simulering 2:s.

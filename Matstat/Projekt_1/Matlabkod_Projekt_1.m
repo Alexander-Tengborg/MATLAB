@@ -19,7 +19,8 @@ ant2=54;
 
 % Specificering av parametrarna alfa och beta
 % samt stickprovsstorlek i aktuell simulering
-alf=alf1; bta=bta1; ant=ant1;
+%alf=alf1; bta=bta1; ant=ant1; %SIMULERING 1
+alf=alf2; bta=bta2; ant=ant2; %SIMULERING 2
 
 % Initiering av slumptalsgenerator
 rand('state',seed);
@@ -39,6 +40,8 @@ elogg=[0];
 tid=[0];
 knd=[0];
 
+x_sum = []
+
 % Rulla simuleringen
 while tnow<tend
   % När anländer nästa kund
@@ -47,11 +50,13 @@ while tnow<tend
   tbetween=t;
   tnextarri=tnow+tbetween;
   % När är dennes betjäning färdig
-  u=rand
+  u=rand;
   % Kod 1a start
-  F = @(x) alf.*bta.*(x.^(bta-1)).*exp(-alf.*x.^bta);
-  x = u*integral(F, 0, u)
-  %x = u*(alf*bta*(u^(bta-1))*exp(-alf*u^bta)) %t;
+  %x = (-log(1-u).^(1/bta))/alf; %Denna??
+  x = (-log(1-u)/alf).^(1/bta)
+  x_sum(end+1) = x;
+  %x = (1/alf).*(-log(1-u)).^(1/bta)./alf;
+  
   % Kod 1a slut
   tservice=x;
   tnewexit=tnextarri+tservice;
@@ -81,6 +86,8 @@ while tnow<tend
     end
   end
 end
+
+MEDEL=mean(x_sum)
 
 % Plotta antalet kunder vs tiden
 knd=cumsum(knd);
@@ -127,3 +134,34 @@ while length(dt)>0
   end
 end
 
+f_x = @(x) x.*(alf*bta*x.^(bta-1).*exp(-alf *x.^(bta)));
+
+%Moment av ordning 1 a.k.a. väntevärde
+L1 = integral(f_x, 0, Inf)
+
+L2 = mean(data)
+
+W1 = L1/lbd
+
+W2 = L2/lbd
+
+x= 0:0.1:100;
+f = (alf*bta*x.^(bta-1).*exp(-alf *x.^(bta)));
+
+f_2 = @(x) (alf*bta*x.^(bta-1).*exp(-alf *x.^(bta)));
+
+integral(f_2, 0, 10)
+
+plot(x, f)
+
+count = 0
+
+for i=1:length(x_sum1)
+    for j=1:length(x_sum)
+        if x_sum1(i) < x_sum(j)
+            count = count + 1
+        end
+    end
+end
+
+count/(length(x_sum1)*length(x_sum))

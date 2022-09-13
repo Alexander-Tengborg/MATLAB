@@ -1,0 +1,14 @@
+Med antagandet att både dtA och dtS är normalfördelade, så kan man med hjälp
+av dess medelvärde och standard deviation få fram grafer för dem. Dem bifogade
+graferna visar dessa grafer. Utifrån dessa så kan man i princip se att Alloy
+är bättre än Steel.
+
+Men då vi har få sampel samt en signifikans nivå (på 0.01) så kan vi också 
+använda oss av ett t-test "med avseende" på dtA. Detta ger ett t värde på
+4.1762. Det kritiska-värdet för en signifikans nivå på 0.01 med 5 frihetsgrader
+(max sampel är 7, 7-2=5) är 3.365. Då vårt t är större än vårt kritiska-värde,
+dvs 4.1762 > 3.365, så vet vi att Alloy är bättre än Steel inom den givna
+signifikans nivån.  
+
+Formeln som användes ovan för t-test var t = (x̄1–x̄2)/√[(s1^2/n1) + (s2^2/n2)]
+(x̄ är medelvärde, s är standardavvikelse och n är sampelstorlek)
